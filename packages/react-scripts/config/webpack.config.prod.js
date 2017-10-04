@@ -176,6 +176,11 @@ module.exports = {
               // @remove-on-eject-begin
               babelrc: false,
               presets: [require.resolve('babel-preset-react-app')],
+              plugins: [
+                ["react-css-modules", {
+                  "generateScopedName": "[path][name]-[local]-[hash:base64:5]"
+                }]
+              ],
               // @remove-on-eject-end
               compact: true,
             },
@@ -210,6 +215,8 @@ module.exports = {
                         importLoaders: 1,
                         minimize: true,
                         sourceMap: shouldUseSourceMap,
+                        modules: true,
+                        localIdentName: '[path][name]-[local]-[hash:base64:5]'
                       },
                     },
                     {

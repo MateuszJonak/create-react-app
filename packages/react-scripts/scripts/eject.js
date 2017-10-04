@@ -202,6 +202,11 @@ inquirer
     console.log(`  Adding ${cyan('Babel')} preset`);
     appPackage.babel = {
       presets: ['react-app'],
+      plugins: [
+        ["react-css-modules", {
+          "generateScopedName": "[path][name]-[local]-[hash:base64:5]"
+        }]
+      ],
     };
 
     // Add ESlint config

@@ -12,4 +12,9 @@ const babelJest = require('babel-jest');
 module.exports = babelJest.createTransformer({
   presets: [require.resolve('babel-preset-react-app')],
   babelrc: false,
+  plugins: [
+    ["react-css-modules", {
+      "generateScopedName": "[path][name]-[local]-[hash:base64:5]"
+    }]
+  ],
 });

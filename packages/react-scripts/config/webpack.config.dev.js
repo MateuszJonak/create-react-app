@@ -169,6 +169,11 @@ module.exports = {
               // @remove-on-eject-begin
               babelrc: false,
               presets: [require.resolve('babel-preset-react-app')],
+              plugins: [
+                ["react-css-modules", {
+                  "generateScopedName": "[path][name]-[local]-[hash:base64:5]"
+                }]
+              ],
               // @remove-on-eject-end
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -189,6 +194,8 @@ module.exports = {
                 loader: require.resolve('css-loader'),
                 options: {
                   importLoaders: 1,
+                  modules: true,
+                  localIdentName: '[path][name]-[local]-[hash:base64:5]'
                 },
               },
               {
